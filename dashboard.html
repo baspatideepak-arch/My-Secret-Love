@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Portal - Admin Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-page">
+<aside class="sidebar">
+  <div class="brand">
+    <img src="dvm-logo.jpeg" alt="DVM Logo">
+    <h2>Love Portal</h2>
+    <p>Admin Panel</p>
+  </div>
+  <nav>
+    <button class="nav-btn active" data-section="dashboard">🏠 Dashboard</button>
+    <button class="nav-btn" data-section="users">👥 Users</button>
+    <button class="nav-btn" data-section="stories">❤️ Love Stories</button>
+    <button class="nav-btn" data-section="messages">💬 Messages</button>
+    <button class="nav-btn" data-section="gallery">🖼️ Gallery</button>
+    <button class="nav-btn" data-section="activity">📊 Activity</button>
+    <button class="nav-btn" data-section="settings">⚙️ Settings</button>
+  </nav>
+  <button id="themeBtn" class="side-action">🌙 Dark Mode</button>
+  <button id="logoutBtn" class="logout-btn">🚪 Logout</button>
+</aside>
+
+<main class="main-content">
+  <header class="topbar">
+    <div><h1>Admin Dashboard</h1><p>Welcome back to Love Portal</p></div>
+    <div class="admin-name">👤 <span id="adminName">Admin</span></div>
+  </header>
+
+  <section id="dashboard" class="page-section active-section">
+    <h2>Dashboard Overview</h2><p>Manage your Love Portal from here.</p>
+    <div class="stats-grid">
+      <div class="stat-card"><span>👥</span><div><b id="usersCount">0</b><small>Total Users</small></div></div>
+      <div class="stat-card"><span>❤️</span><div><b id="storiesCount">0</b><small>Love Stories</small></div></div>
+      <div class="stat-card"><span>💬</span><div><b id="messagesCount">0</b><small>Messages</small></div></div>
+      <div class="stat-card"><span>🖼️</span><div><b id="photosCount">0</b><small>Photos</small></div></div>
+    </div>
+    <div class="quick-actions">
+      <button class="primary-btn" data-go="users">👥 Add User</button>
+      <button class="primary-btn" data-go="stories">❤️ Add Love Story</button>
+      <button class="primary-btn" data-go="gallery">🖼️ Open Gallery</button>
+    </div>
+  </section>
+
+  <section id="users" class="page-section">
+    <div class="section-head"><div><h2>Users</h2><p>Manage portal users.</p></div><button class="primary-btn" id="addUserBtn">+ Add User</button></div>
+    <input class="search" id="userSearch" placeholder="Search users...">
+    <div class="table-wrap"><table><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Action</th></tr></thead><tbody id="usersTable"></tbody></table></div>
+  </section>
+
+  <section id="stories" class="page-section">
+    <div class="section-head"><div><h2>Love Stories</h2><p>Add and manage stories.</p></div><button class="primary-btn" id="addStoryBtn">+ Add Story</button></div>
+    <input class="search" id="storySearch" placeholder="Search stories...">
+    <div id="storiesList" class="story-list"></div>
+  </section>
+
+  <section id="messages" class="page-section">
+    <h2>Messages</h2><p>Manage received messages.</p>
+    <div id="messagesList" class="message-list"></div>
+  </section>
+
+  <section id="gallery" class="page-section">
+    <div class="section-head"><div><h2>Gallery 🔐</h2><p>Enter the Gallery Password to view photos.</p></div><b><span id="galleryCount">0</span> Photos</b></div>
+    <div class="gallery-note">Use names like <b>photo1.png</b>, <b>photo2.png</b>, <b>photo3.png</b> ... up to <b>photo500.png</b>.</div>
+    <div id="galleryGrid" class="gallery-grid"></div>
+  </section>
+
+  <section id="activity" class="page-section"><h2>Activity</h2><p>Recent portal activity.</p><div id="activityList" class="activity-list"></div></section>
+
+  <section id="settings" class="page-section">
+    <h2>Settings</h2><p>Update basic dashboard settings.</p>
+    <div class="settings-card"><label>Admin Username</label><input id="settingsUsername"><button class="primary-btn" id="saveSettingsBtn">Save Settings</button><button class="danger-btn" id="resetBtn">Reset Demo Data</button></div>
+  </section>
+</main>
+
+<div id="galleryPasswordModal" class="modal">
+  <div class="modal-box gallery-password-box">
+    <button class="close" data-close="galleryPasswordModal">×</button>
+    <h2>🔐 Gallery Password</h2>
+    <p class="password-help">Enter the password to open the private gallery.</p>
+    <form id="galleryPasswordForm">
+      <div class="password-box"><input id="galleryPasswordInput" type="password" placeholder="Enter gallery password" required><button type="button" class="eye-btn" id="galleryEyeBtn">👁️</button></div>
+      <div id="galleryPasswordMessage" class="message"></div>
+      <button type="submit" class="primary-btn full">Unlock Gallery</button>
+    </form>
+  </div>
+</div>
+
+<div id="userModal" class="modal"><div class="modal-box"><button class="close" data-close="userModal">×</button><h2>Add User</h2><form id="userForm"><input id="newUserName" placeholder="Name" required><input id="newUserEmail" type="email" placeholder="Email" required><select id="newUserRole"><option>User</option><option>Admin</option></select><button class="primary-btn full">Add User</button></form></div></div>
+<div id="storyModal" class="modal"><div class="modal-box"><button class="close" data-close="storyModal">×</button><h2>Add Love Story</h2><form id="storyForm"><input id="newStoryTitle" placeholder="Story title" required><textarea id="newStoryText" placeholder="Write story..." required></textarea><button class="primary-btn full">Add Story</button></form></div></div>
+<script src="dashboard.js"></script>
+</body>
+</html>

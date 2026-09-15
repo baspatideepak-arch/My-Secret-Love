@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Portal - Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+<div class="login-card">
+  <img src="dvm-logo.jpeg" alt="DVM Secret & Hidden Love" class="login-logo">
+  <h1>Love Portal</h1>
+  <p class="tagline">SECRET &amp; HIDDEN LOVE</p>
+
+  <section id="loginSection">
+    <h2>Admin Login</h2>
+    <form id="loginForm">
+      <label>Username</label>
+      <input id="loginUsername" type="text" required autocomplete="username">
+      <label>Password</label>
+      <div class="password-box">
+        <input id="loginPassword" type="password" required autocomplete="current-password">
+        <button type="button" class="eye-btn" id="showPassword">👁</button>
+      </div>
+      <button class="primary-btn full" type="submit">Login</button>
+    </form>
+    <div class="login-links">
+      <button type="button" class="link-btn" id="showCreateBtn">Create Account</button>
+      <button type="button" class="link-btn" id="forgotBtn">Forgot Password?</button>
+    </div>
+  </section>
+
+  <section id="createSection" class="hidden">
+    <h2>Create Admin Account</h2>
+    <form id="createForm">
+      <label>Username</label>
+      <input id="createUsername" type="text" minlength="3" required>
+      <label>Password</label>
+      <input id="createPassword" type="password" minlength="4" required>
+      <label>Confirm Password</label>
+      <input id="confirmPassword" type="password" minlength="4" required>
+      <button class="primary-btn full" type="submit">Create Account</button>
+    </form>
+    <button type="button" class="link-btn back-btn" id="backLoginBtn">← Back to Login</button>
+  </section>
+
+  <p id="loginMessage" class="message"></p>
+</div>
+<script src="admin_login.js"></script>
+</body>
+</html>
